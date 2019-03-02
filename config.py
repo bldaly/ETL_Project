@@ -1,1 +1,1 @@
-gkey = "AIzaSyBYoTCRoZKu6ElCRti7SHHCvpEvc2cpxD4"
+gkey = "YOUR API KEY HERE"
