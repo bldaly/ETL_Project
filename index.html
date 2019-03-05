@@ -3,40 +3,82 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
-  <!-- May not Need -----------------------------------------------------------------
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
-  
   <title>Chicago Restaurants</title>
 </head>
 
 <body>
   <div class="container">
-
+    <div class='row'>
+    <div class='col-sm-12'>
     <div class="jumbotron text-center">
       <!-- Render our data -->
       <h1>Inspection Ratings of Some Chicago Restaurants</h1>
-      <form method="GET" action="{{url_for('extract')}}">
-        <button name="scrapeBtn" href='#' type="submit">Extract</button>
-      </form>
-    
-      <form method="GET" action="{{url_for('extract')}}">
-        <button name="scrapeBtn" href='#' type="submit">Transform</button>
-      </form>
+      <h3>Team: Aritra Lahiri, Brenda Daly, Diana Dinshaw</h3>
+    </div>
+  </div>
+  </div>
 
-      <form method="GET" action="{{url_for('extract')}}">
-        <button name="scrapeBtn" href='#' type="submit">Load</button>
-      </form>
+    <div classs ='row'>
+      <div class ='col-sm-4'>
+      <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">E is for Extract</button>
+      <div id="demo" class="collapse">
+        
+        <p>Our team chose the following datasets:</p>
+        
+        A CSV File from Kaggle titled<a href='https://www.kaggle.com/chicago/chicago-food-inspections'> Chicago Food Inspection</a>
+        <br/>
+        <a href='https://developers.google.com/places/web-service/supported_types'>And Googlemaps API </a>
+        from where we obtained the rating of the restaurants using the latitude and longitude from the Kaggle CSV file. 
+        <br/>
+        We chose these datasets because we were interested in comparing the user ratings of a
+        restaurant with the inspection scores by the Chicago Department of Public Health.
+      </div>
+    </div>
+  
+
+    <div class ='col-sm-4'>
+      <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo-one">T is for Transorm</button>
+      <div id="demo-one" class="collapse">
+        We started by importing the csv into a pandas dataframe. From there we took only the 'Restaurant'
+        facility types. Next we did some data cleaning and created a unique id column from the  
+        latitude and longitude.
+        <br/>
+        <br/>
+        We ran the Google Places API using the Nearby Search parameter that lets you 
+        search for places within a specified area. By referencing the latitude and longitude of the 
+        restaurants from the csv file we obtained the user rating for each restaurant. 
+        
+        <br/>
+        <img class='img2' src='Transform_screenshot.png' alt ='Transformed Database Screenshot'></img>
+        <br/>
+        Once we had out transformed data in two pandas databases we saved them to csv files and uploaded 
+        to MySQl where we joined the tables. 
+      </div>
     </div>
 
-    <div class='row'>
+    <div class='col-sm-4'>
+      <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo-two">L is for Load</button>
+      <div id="demo-two" class="collapse">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </div>
+    </div>
+
+
+    <div class='row '>
     <div class="col-sm-12">
-      <img src ='restaurants.jpg' alt='Restaurant Image'>
+      <img class= 'img2' src ='restaurants.jpg' alt='Restaurant Image'>
     </div>
     </div>
+
+  </div>
   </div>
 </body>
