@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="Style.css">
+  <!-- May not Need -----------------------------------------------------------------
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
+  
+  <title>Chicago Restaurants</title>
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="jumbotron text-center">
+      <!-- Render our data -->
+      <h1>Inspection Ratings of Chicago Restaurants</h1>
+      <form method="GET" action="{{url_for('extract')}}">
+        <button name="scrapeBtn" href='#' type="submit">Extract</button>
+      </form>
+    
+      <form method="GET" action="{{url_for('extract')}}">
+        <button name="scrapeBtn" href='#' type="submit">Transform</button>
+      </form>
+
+      <form method="GET" action="{{url_for('extract')}}">
+        <button name="scrapeBtn" href='#' type="submit">Load</button>
+      </form>
+    </div>
+
+    <div class="col-sm-12">
+      <h1>Extract</h1>
+
+    </div>
