@@ -12,7 +12,7 @@ create TABLE inspection (
   Longitude float
 );
   
-select * from inspection
+select * from inspection;
 
 create TABLE reviews (
   Inspection_ID varchar(50),
@@ -22,7 +22,7 @@ create TABLE reviews (
   Ratings varchar(50)
   );
   
-select * from reviews
+select * from reviews;
   
 SELECT i.Inspection_id, i.DBA_Name, i.Risk, i.Address, i.Results, i.Inspection_Date, r.ratings
 from inspection i
