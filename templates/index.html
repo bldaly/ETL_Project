@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <title>Chicago Restaurants</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class='row'>
+    <div class='col-sm-12'>
+    <div class="jumbotron text-center">
+      <!-- Render our data -->
+      <h1>Inspection Ratings of Some Chicago Restaurants</h1>
+      <h3>Team: Aritra Lahiri, Brenda Daly, Diana Dinshaw</h3>
+    </div>
+  </div>
+  </div>
+
+<!--Extract-->
+    <div classs ='row'>
+      <div class ='col-sm-4 head'>
+      <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">
+        E is for Extract</button>
+      <div id="demo" class="collapse">
+        
+        <p>Our team chose the following datasets:</p>
+        
+        A CSV File from Kaggle titled<a href='https://www.kaggle.com/chicago/chicago-food-inspections'> Chicago Food Inspection</a>
+        <br/>
+        <a href='https://developers.google.com/places/web-service/supported_types'>and Googlemaps API </a>
+        from where we obtained the rating of the restaurants using the latitude and longitude from the Kaggle CSV file. 
+        <br/>
+        We chose these datasets because we were interested in comparing the user ratings of a
+        restaurant with the inspection scores by the Chicago Department of Public Health.
+        <br/>
+        <img class='img2' src='Images/chicago.JPG' alt ='Food'></img>
+      </div>
+    </div>
+  
+<!--Transform-->
+    <div class ='col-sm-4 head'>
+      <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo-one">
+        T is for Transorm</button>
+      <div id="demo-one" class="collapse">
+        
+        We started by importing the csv into a pandas dataframe. From there we took only the 'Restaurant'
+        facility types. Next we did some data cleaning and created a unique id column from the  
+        latitude and longitude.
+        <br/>
+        <br/>
+        We ran the Google Places API using the Nearby Search parameter that lets you 
+        search for places within a specified area. By referencing the latitude and longitude of the 
+        restaurants from the csv file we obtained the user rating for each restaurant. 
+        
+        <br/>
+        <img class='img2' src='Transform_screenshot.png' alt ='Transformed Database Screenshot'></img>
+        <br/>
+        Once we had out transformed data in two pandas databases we saved them to csv files and uploaded 
+        to MySQl where we joined the tables. 
+      </div>
+    </div>
+
+
+<!--Load-->
+    <div class='col-sm-4 head'>
+      <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo-two">
+        L is for Load</button>
+      <!--<a href='load.html' type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo-two">L is for Load</a>-->
+      <div id="demo-two" class="collapse">
+          The data was loaded into a final table inspect-rating_merge in MySQL 
+          which can now be used to query data and make decsions. For example which restaurants were 
+          rated a high risk by The Chicago Department of Health or despite a high risk rating which 
+          restaurants are liked by the users.
+          <br/>
+          <!--<img class='img2' src='Images/inspection_rating_final.PNG' alt ='Final Table'></img>-->
+          <img class='img2' src='Images/Result SQl Table.JPG' alt ='MySQL Table'></img>
+  
+          <br/>
+          <img class='img2' src='Images/food.JPG' alt ='Food'></img>
+        
+          <p><a href="/load">Ratings</a></p>
+        </div>
+        <div class="row" id="craiglist-listings">
+          <div class="col-md-12">
+            {% for restaurant in restaurants %}
+            <li>{{ restaurant.DBA_Name}}: {{ restaurant.ratings }}</li>
+          {% endfor %}
+        </div>
+  
+          </div>
+        </div>
+    
+    
+      
+        The data was loaded into a final table inspect-rating_merge in MySQL 
+        which can now be used to query data and make decsions. For example which restaurants were 
+        rated a high risk by The Chicago Department of Health or despite a high risk rating which 
+        restaurants are liked by the users.
+        <br/>
+        <!--<img class='img2' src='Images/inspection_rating_final.PNG' alt ='Final Table'></img>-->
+        <img class='img2' src='Images/Result SQl Table.JPG' alt ='MySQL Table'></img>
+
+        <br/>
+        <img class='img2' src='Images/food.JPG' alt ='Food'></img>
+      </div>
+    </div>
+
+
+    <div class='row '>
+    <div class="col-sm-12">
+      <img class= 'img2' src ='restaurants.jpg' alt='Restaurant Image'>
+    </div>
+    </div>
+
+  </div>
+  </div>
+</body>
